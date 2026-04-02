@@ -1,0 +1,523 @@
+"use client";
+
+import { useState } from "react";
+
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const services = [
+    {
+      title: "SAP ABAP Danışmanlığı",
+      desc: "Kurumsal ihtiyaçlara özel ABAP geliştirme, bakım, optimizasyon ve S/4HANA uyumlu çözümler.",
+    },
+    {
+      title: "E-Fatura",
+      desc: "Yasal uyumlu, güvenli ve sürdürülebilir e-Fatura süreç yönetimi çözümleri.",
+    },
+    {
+      title: "E-Arşiv",
+      desc: "Dijital belge yönetimini kolaylaştıran, hızlı ve izlenebilir e-Arşiv altyapısı.",
+    },
+    {
+      title: "E-İrsaliye",
+      desc: "Operasyon süreçlerini hızlandıran, entegrasyon odaklı e-İrsaliye uygulamaları.",
+    },
+    {
+      title: "E-Defter",
+      desc: "Mevzuata uygun, kontrol edilebilir ve güvenilir e-Defter çözümleri.",
+    },
+    {
+      title: "E-Mutabakat",
+      desc: "Ticari mutabakat süreçlerini dijitalleştiren verimli ve merkezi yönetim yapısı.",
+    },
+  ];
+
+  const reasons = [
+    "SAP ABAP uzmanlığı",
+    "e-Dönüşüm ürün ailesi",
+    "Kurumsal ve sürdürülebilir yaklaşım",
+    "Entegrasyon odaklı çözüm yapısı",
+  ];
+
+  const menuItems = [
+    { name: "Ana Sayfa", link: "#anasayfa" },
+    { name: "Hakkımızda", link: "#hakkimizda" },
+    { name: "Hizmetler", link: "#hizmetler" },
+    { name: "Neden SWISE", link: "#neden-biz" },
+    { name: "Referanslar", link: "#referanslar" },
+    { name: "İletişim", link: "#iletisim" },
+  ];
+
+  return (
+    <main className="min-h-screen bg-white text-slate-800">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+          <div className="flex items-center gap-4">
+            <img
+              src="/logo.png"
+              alt="SWISE Logo"
+              className="h-12 w-auto object-contain"
+            />
+
+            <div className="leading-tight">
+              <div className="text-lg font-bold tracking-wide text-slate-900">
+                SWISE
+              </div>
+              <div className="text-[11px] text-slate-500">
+                Teknoloji & Danışmanlık
+              </div>
+            </div>
+          </div>
+
+          <nav className="hidden items-center gap-8 md:flex">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                className="text-sm font-medium text-slate-600 transition hover:text-blue-700"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="#iletisim"
+              className="hidden md:inline-flex items-center rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800 hover:shadow-xl"
+            >
+              Teklif Al
+            </a>
+
+            <button
+  type="button"
+  onClick={() => setMenuOpen((prev) => !prev)}
+  className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xl text-slate-800 md:hidden"
+>
+  {menuOpen ? "✕" : "☰"}
+</button>
+          </div>
+        </div>
+</header>
+        {menuOpen && (
+  <div className="fixed left-0 right-0 top-16 z-[9999] md:hidden bg-red-500 p-6 text-white shadow-2xl">
+    <div className="mb-4 text-lg font-bold">MENÜ AÇILDI</div>
+
+    <div className="flex flex-col gap-4">
+      {menuItems.map((item) => (
+        <a
+          key={item.name}
+          href={item.link}
+          onClick={() => setMenuOpen(false)}
+          className="block rounded-lg bg-white/10 px-3 py-3 text-sm font-medium"
+        >
+          {item.name}
+        </a>
+      ))}
+
+      <a
+        href="#iletisim"
+        onClick={() => setMenuOpen(false)}
+        className="mt-2 inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-red-600"
+      >
+        Teklif Al
+      </a>
+    </div>
+  </div>
+)}
+      
+
+      <section
+  id="anasayfa"
+  className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white"
+>
+  <div className="absolute inset-0 opacity-20">
+    <div className="absolute -right-20 top-0 h-80 w-80 rounded-full bg-cyan-400 blur-3xl" />
+    <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500 blur-3xl" />
+  </div>
+
+  <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:px-10 lg:grid-cols-2 lg:items-center lg:py-28">
+    <div>
+      <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur">
+        SAP ABAP • E-Dönüşüm • Entegrasyon Çözümleri
+      </div>
+
+      <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-tight md:text-5xl xl:text-6xl">
+        SAP ABAP ve e-Dönüşüm süreçlerinde kurumsal, güvenilir ve sürdürülebilir çözümler
+      </h1>
+
+      <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 md:text-lg">
+        SWISE, kurumların dijital dönüşüm yolculuğunda SAP ABAP danışmanlığı, e-Dönüşüm ürünleri ve
+        entegrasyon hizmetleri ile uçtan uca çözüm sunar. Güçlü teknik bilgi birikimi ve kurumsal yaklaşımıyla,
+        süreçlerinizi daha verimli ve yönetilebilir hale getirir.
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-4">
+        <a
+          href="#hizmetler"
+          className="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+        >
+          Hizmetlerimizi İnceleyin
+        </a>
+        <a
+          href="#iletisim"
+          className="rounded-2xl border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+        >
+          Teklif Alın
+        </a>
+      </div>
+
+      <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+        {[
+          "SAP ABAP Uzmanlığı",
+          "E-Dönüşüm Ürünleri",
+          "Entegrasyon Kabiliyeti",
+          "Kurumsal Yaklaşım",
+        ].map((item) => (
+          <div
+            key={item}
+            className="rounded-2xl border border-white/15 bg-white/10 p-4 text-sm backdrop-blur"
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="lg:pl-10">
+      <div className="rounded-[30px] border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
+        <div className="rounded-[24px] bg-white p-6 text-slate-900 shadow-inner">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+            <div>
+              <div className="text-sm font-semibold text-blue-700">SWISE</div>
+              <div className="text-xs text-slate-500">Kurumsal Teknoloji Çözümleri</div>
+            </div>
+            <div className="rounded-xl bg-blue-50 px-3 py-2 text-xs font-medium text-blue-700">
+              Enterprise Ready
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-4">
+            <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="text-sm text-slate-500">Ana Uzmanlık</div>
+              <div className="mt-2 text-lg font-semibold text-slate-900">
+                SAP ABAP Danışmanlığı ve Özel Geliştirme
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="text-sm text-slate-500">Ürün Ailesi</div>
+              <div className="mt-2 text-lg font-semibold text-slate-900">
+                e-Fatura, e-Arşiv, e-İrsaliye, e-Defter, e-Mutabakat
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="text-sm text-slate-500">Yaklaşım</div>
+              <div className="mt-2 text-lg font-semibold text-slate-900">
+                Entegre, sürdürülebilir ve kurum ihtiyaçlarına özel çözümler
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-4">
+            <div className="rounded-2xl bg-blue-700 p-5 text-white">
+              <div className="text-sm text-blue-100">Odak</div>
+              <div className="mt-2 text-xl font-bold">SAP + e-Dönüşüm</div>
+            </div>
+            <div className="rounded-2xl bg-slate-900 p-5 text-white">
+              <div className="text-sm text-slate-300">Hedef</div>
+              <div className="mt-2 text-xl font-bold">Verimlilik + Uyum</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="hakkimizda" className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+        <div className="grid gap-6 rounded-[28px] border border-slate-200 bg-slate-50 p-8 md:grid-cols-3">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Hakkımızda</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900">Dijital dönüşümde kurumsal yaklaşım</h2>
+          </div>
+          <div className="md:col-span-2">
+            <p className="text-base leading-8 text-slate-600">
+              SWISE Bilgi Teknolojileri ve Danışmanlık Hizmetleri Ltd. Şti., SAP ABAP yazılım geliştirme ve
+              e-Dönüşüm çözümleri alanında uzmanlaşmış bir teknoloji firmasıdır. Şirketimiz; güçlü teknik bilgi,
+              proje deneyimi ve müşteri odaklı yaklaşımı ile kurumların iş süreçlerini iyileştiren, verimliliği artıran
+              ve sürdürülebilir değer yaratan çözümler sunmaktadır.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="hizmetler" className="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-16">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Hizmetlerimiz</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900">İş süreçlerinizi güçlendiren çözümler</h2>
+          </div>
+          <p className="max-w-2xl text-slate-600">
+            SAP altyapınızdan e-Dönüşüm operasyonlarınıza kadar tüm süreçler için modern, güvenilir ve entegre hizmetler.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="group rounded-[24px] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div className="mb-4 inline-flex rounded-2xl bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+                {service.title}
+              </div>
+              <p className="leading-7 text-slate-600">{service.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="neden-biz" className="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-16">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="rounded-[28px] bg-slate-950 p-8 text-white">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Neden SWISE</p>
+            <h2 className="mt-4 text-3xl font-bold">Kurumsal ihtiyaçlara uygun, sonuç odaklı yaklaşım</h2>
+            <p className="mt-5 leading-8 text-slate-300">
+              SAP ABAP uzmanlığımız ve e-Dönüşüm ürün ailemiz sayesinde müşterilerimize tek noktadan, entegre ve
+              sürdürülebilir çözümler sunuyoruz. Analizden canlı kullanıma kadar tüm süreçlerde güvenilir iş ortağı
+              olarak konumlanıyoruz.
+            </p>
+          </div>
+
+          <div className="grid gap-4">
+            {[
+              "Kuruma özel yazılım ve danışmanlık yaklaşımı",
+              "SAP sistemleri ile uyumlu entegrasyon çözümleri",
+              "Yasal uyumluluk ve operasyonel verimlilik odağı",
+              "Uzun vadeli, güvenilir iş ortaklığı anlayışı",
+            ].map((item) => (
+              <div key={item} className="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+                <div className="text-base font-semibold text-slate-900">{item}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="referanslar"className="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-16">
+  <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Referanslar</p>
+      <h2 className="mt-3 text-3xl font-bold text-slate-900">
+        Farklı sektörlerde kurumsal ihtiyaçlara yönelik çözümler
+      </h2>
+    </div>
+    <p className="max-w-2xl text-slate-600">
+      SWISE, SAP ABAP danışmanlığı ve e-Dönüşüm çözümleri ile farklı ölçeklerdeki işletmelerin
+      dijital dönüşüm süreçlerine katkı sunmayı hedefler.
+    </p>
+  </div>
+
+  <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    {[
+      {
+        title: "Üretim ve Sanayi",
+        desc: "Operasyonel süreçlerin dijitalleştirilmesi, SAP uyumlu geliştirmeler ve entegrasyon çözümleri.",
+      },
+      {
+        title: "Finans ve Kurumsal Yapılar",
+        desc: "Yasal uyumluluk, e-Dönüşüm süreçleri ve sürdürülebilir dijital belge yönetimi çözümleri.",
+      },
+      {
+        title: "Lojistik ve Tedarik Zinciri",
+        desc: "e-İrsaliye, veri akışı, süreç takibi ve entegrasyon odaklı kurumsal altyapı desteği.",
+      },
+      {
+        title: "Kurumsal Dönüşüm Projeleri",
+        desc: "SAP ABAP özel geliştirme, süreç iyileştirme ve uçtan uca dijital dönüşüm yaklaşımı.",
+      },
+    ].map((item) => (
+      <div
+        key={item.title}
+        className="rounded-[24px] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+      >
+        <div className="mb-4 inline-flex rounded-2xl bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+          {item.title}
+        </div>
+        <p className="leading-7 text-slate-600">{item.desc}</p>
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-10 rounded-[28px] border border-slate-200 bg-slate-50 p-8">
+    <div className="grid gap-6 lg:grid-cols-3">
+      <div>
+        <div className="text-3xl font-bold text-slate-900">Kurumsal Yaklaşım</div>
+        <p className="mt-3 leading-7 text-slate-600">
+          Her projede iş ihtiyacını, teknik gereksinimleri ve sürdürülebilir yapıyı birlikte ele alıyoruz.
+        </p>
+      </div>
+
+      <div>
+        <div className="text-3xl font-bold text-slate-900">Entegrasyon Odağı</div>
+        <p className="mt-3 leading-7 text-slate-600">
+          SAP sistemleri ile e-Dönüşüm süreçleri arasında güçlü ve yönetilebilir entegrasyonlar kuruyoruz.
+        </p>
+      </div>
+
+      <div>
+        <div className="text-3xl font-bold text-slate-900">Uzun Vadeli Değer</div>
+        <p className="mt-3 leading-7 text-slate-600">
+          Sadece geliştirme değil, kurumsal ölçekte güvenilir ve uzun ömürlü çözüm yapıları sunmayı hedefliyoruz.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+      <section className="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-16">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-[28px] bg-slate-100 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Vizyonumuz</p>
+            <p className="mt-4 text-2xl font-bold leading-9 text-slate-900">
+              Dijital dönüşüm alanında güvenilir ve tercih edilen bir teknoloji çözüm ortağı olmak.
+            </p>
+          </div>
+          <div className="rounded-[28px] bg-blue-600 p-8 text-white">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100">Misyonumuz</p>
+            <p className="mt-4 text-2xl font-bold leading-9">
+              Müşterilerimize verimliliği artıran, sürdürülebilir ve yüksek kaliteli yazılım çözümleri sunmak.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="iletisim" className="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-16">
+  <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm md:p-12">
+    <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">İletişim</p>
+        <h2 className="mt-3 text-3xl font-bold text-slate-900">
+          Kurumsal çözümler için bizimle iletişime geçin
+        </h2>
+        <p className="mt-5 max-w-xl leading-8 text-slate-600">
+          SAP ABAP danışmanlığı, e-Dönüşüm ürünleri ve entegrasyon ihtiyaçlarınız için size uygun çözüm yapısını
+          birlikte kurgulayalım. Talebinizi iletin, ekibimiz en kısa sürede sizinle iletişime geçsin.
+        </p>
+
+        <div className="mt-8 grid gap-4 rounded-[28px] bg-slate-50 p-6">
+          <div className="rounded-2xl bg-white p-5">
+            <div className="text-sm text-slate-500">Şirket</div>
+            <div className="mt-1 font-semibold text-slate-900">
+              SWISE Bilgi Teknolojileri ve Danışmanlık Hizmetleri Ltd. Şti.
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5">
+            <div className="text-sm text-slate-500">E-Posta</div>
+            <div className="mt-1 font-semibold text-slate-900">info@swise.com.tr</div>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5">
+            <div className="text-sm text-slate-500">Hizmet Alanları</div>
+            <div className="mt-1 font-semibold text-slate-900">
+              SAP ABAP, e-Fatura, e-Arşiv, e-İrsaliye, e-Defter, e-Mutabakat
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-[28px] bg-slate-50 p-6 md:p-8">
+        <form className="grid gap-5">
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              Ad Soyad
+            </label>
+            <input
+              type="text"
+              placeholder="Adınız ve soyadınız"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+            />
+          </div>
+
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              Firma Adı
+            </label>
+            <input
+              type="text"
+              placeholder="Firma adınızı giriniz"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+            />
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-700">
+                E-Posta
+              </label>
+              <input
+                type="email"
+                placeholder="ornek@firma.com"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-700">
+                Telefon
+              </label>
+              <input
+                type="tel"
+                placeholder="05xx xxx xx xx"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              İlgilendiğiniz Hizmet
+            </label>
+            <select className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600">
+              <option>SAP ABAP Danışmanlığı</option>
+              <option>e-Fatura</option>
+              <option>e-Arşiv</option>
+              <option>e-İrsaliye</option>
+              <option>e-Defter</option>
+              <option>e-Mutabakat</option>
+              <option>Entegrasyon Hizmetleri</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              Mesajınız
+            </label>
+            <textarea
+              rows={6}
+              placeholder="Talebinizi ve ihtiyaçlarınızı yazabilirsiniz"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="inline-flex justify-center rounded-2xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800"
+          >
+            Talep Gönder
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+      <footer className="mt-10 border-t border-slate-200 bg-slate-50">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 md:flex-row md:items-center md:justify-between md:px-10">
+          <div>© 2026 SWISE Bilgi Teknolojileri ve Danışmanlık Hizmetleri Ltd. Şti.</div>
+          <div>SAP ABAP • e-Fatura • e-Arşiv • e-İrsaliye • e-Defter • e-Mutabakat</div>
+        </div>
+      </footer>
+    </main>
+  );
+}
