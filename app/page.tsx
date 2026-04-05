@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 const services = [
   {
@@ -47,20 +48,11 @@ const menuItems = [
 
 const references = [
   {
-    title: "Uretim ve Sanayi",
-    desc: "Operasyonel sureclerin dijitallestirilmesi, SAP uyumlu gelistirmeler ve entegrasyon cozumleri.",
-  },
-  {
-    title: "Finans ve Kurumsal Yapilar",
-    desc: "Yasal uyumluluk, e-Donusum surecleri ve surdurulebilir dijital belge yonetimi cozumleri.",
-  },
-  {
-    title: "Lojistik ve Tedarik Zinciri",
-    desc: "e-Irsaliye, veri akisi, surec takibi ve entegrasyon odakli kurumsal altyapi destegi.",
-  },
-  {
-    title: "Kurumsal Donusum Projeleri",
-    desc: "SAP ABAP ozel gelistirme, surec iyilestirme ve uctan uca dijital donusum yaklasimi.",
+    title: "Konveyor",
+    logo: "/references/konveyor-as-logo.jpg",
+    sector: "Beyaz esya, otomotiv ve yedek parca",
+    service: "SAP ABAP ve entegrasyon cozumleri",
+    desc: "Uretim ve tedarik sureclerinde SAP uyumlu gelistirmeler, is akislarinin iyilestirilmesi ve operasyonel entegrasyon yapilari.",
   },
 ];
 
@@ -70,6 +62,11 @@ const differentiators = [
   "Yasal uyumluluk ve operasyonel verimlilik odagi",
   "Uzun vadeli, guvenilir is ortakligi anlayisi",
 ];
+
+type SubmitState = {
+  kind: "idle" | "success" | "error";
+  message: string;
+};
 
 function AnimatedLogo() {
   return (
@@ -142,6 +139,52 @@ function AnimatedLogo() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>({
+    kind: "idle",
+    message: "",
+  });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleContactSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitState({ kind: "idle", message: "" });
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Mesaj gonderilemedi.");
+      }
+
+      formRef.current?.reset();
+      setSubmitState({
+        kind: "success",
+        message: result.message || "Mesajiniz basariyla gonderildi.",
+      });
+    } catch (error) {
+      setSubmitState({
+        kind: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Bir hata olustu. Lutfen tekrar deneyin.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -412,10 +455,27 @@ export default function Home() {
               key={item.title}
               className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="mb-4 inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
-                {item.title}
+              <div className="mb-5 flex items-center gap-4">
+                <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2">
+                  <Image
+                    src={item.logo}
+                    alt={`${item.title} logosu`}
+                    width={72}
+                    height={72}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+                  {item.title}
+                </div>
               </div>
-              <p className="leading-7 text-slate-600">{item.desc}</p>
+              <div className="text-sm font-medium uppercase tracking-[0.16em] text-slate-500">
+                {item.sector}
+              </div>
+              <div className="mt-3 text-base font-semibold text-slate-900">
+                {item.service}
+              </div>
+              <p className="mt-3 leading-7 text-slate-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -498,22 +558,26 @@ export default function Home() {
             </div>
 
             <div className="rounded-[30px] bg-slate-50 p-6 md:p-8">
-              <form className="grid gap-5">
+              <form ref={formRef} className="grid gap-5" onSubmit={handleContactSubmit}>
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">Ad Soyad</label>
                   <input
+                    name="name"
                     type="text"
                     placeholder="Adiniz ve soyadiniz"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+                    required
                   />
                 </div>
 
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">Firma Adi</label>
                   <input
+                    name="company"
                     type="text"
                     placeholder="Firma adinizi giriniz"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+                    required
                   />
                 </div>
 
@@ -521,25 +585,33 @@ export default function Home() {
                   <div>
                     <label className="mb-2 block text-sm font-medium text-slate-700">E-Posta</label>
                     <input
+                      name="email"
                       type="email"
                       placeholder="ornek@firma.com"
                       className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+                      required
                     />
                   </div>
 
                   <div>
                     <label className="mb-2 block text-sm font-medium text-slate-700">Telefon</label>
                     <input
+                      name="phone"
                       type="tel"
                       placeholder="05xx xxx xx xx"
                       className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+                      required
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">Ilgilendiginiz hizmet</label>
-                  <select className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600">
+                  <select
+                    name="service"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+                    required
+                  >
                     <option>SAP ABAP Danismanligi</option>
                     <option>e-Fatura</option>
                     <option>e-Arsiv</option>
@@ -553,17 +625,33 @@ export default function Home() {
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">Mesajiniz</label>
                   <textarea
+                    name="message"
                     rows={6}
                     placeholder="Talebinizi ve ihtiyaclarinizi yazabilirsiniz"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
+                    required
                   />
                 </div>
 
+                {submitState.kind !== "idle" ? (
+                  <p
+                    aria-live="polite"
+                    className={
+                      submitState.kind === "success"
+                        ? "rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800"
+                        : "rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                    }
+                  >
+                    {submitState.message}
+                  </p>
+                ) : null}
+
                 <button
                   type="submit"
-                  className="inline-flex justify-center rounded-2xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800"
+                  disabled={isSubmitting}
+                  className="inline-flex justify-center rounded-2xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-blue-400"
                 >
-                  Talep Gonder
+                  {isSubmitting ? "Gonderiliyor..." : "Talep Gonder"}
                 </button>
               </form>
             </div>
