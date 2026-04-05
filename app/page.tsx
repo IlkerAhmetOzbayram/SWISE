@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 const services = [
@@ -72,6 +71,75 @@ const differentiators = [
   "Uzun vadeli, guvenilir is ortakligi anlayisi",
 ];
 
+function AnimatedLogo() {
+  return (
+    <div className="swise-logo-shell">
+      <svg
+        viewBox="0 0 168 64"
+        aria-hidden="true"
+        className="swise-logo-mark"
+      >
+        <defs>
+          <linearGradient id="swise-primary" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="#1d4ed8" />
+            <stop offset="55%" stopColor="#06b6d4" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+          <linearGradient id="swise-secondary" x1="100%" x2="0%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="#0f172a" />
+            <stop offset="45%" stopColor="#1e3a8a" />
+            <stop offset="100%" stopColor="#2563eb" />
+          </linearGradient>
+          <filter id="swise-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3.6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <rect
+          x="4"
+          y="4"
+          width="160"
+          height="56"
+          rx="20"
+          className="swise-logo-panel"
+        />
+
+        <path
+          className="swise-logo-glow"
+          d="M63 14C49 14 39 20 39 29C39 37 47 40 58 43C69 46 75 48 75 54C75 60 69 64 58 64"
+          filter="url(#swise-glow)"
+        />
+
+        <g className="swise-logo-s swise-logo-s-left">
+          <path
+            d="M63 14C49 14 39 20 39 29C39 37 47 40 58 43C69 46 75 48 75 54C75 60 69 64 58 64"
+            fill="none"
+            stroke="url(#swise-primary)"
+            strokeWidth="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+
+        <g className="swise-logo-s swise-logo-s-right">
+          <path
+            d="M105 0C95 0 89 4 89 10C89 17 95 20 106 23C119 27 129 31 129 41C129 51 119 58 104 58C93 58 84 54 77 47"
+            fill="none"
+            stroke="url(#swise-secondary)"
+            strokeWidth="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -80,16 +148,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
           <div className="flex items-center gap-4">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2">
-              <Image
-                src="/logo.png"
-                alt="SWISE Logo"
-                width={144}
-                height={48}
-                className="h-12 w-auto object-contain"
-                priority
-              />
-            </div>
+            <AnimatedLogo />
             <div className="leading-tight">
               <div className="text-lg font-semibold tracking-[0.22em] text-stone-950">
                 SWISE

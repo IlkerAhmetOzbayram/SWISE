@@ -22,3 +22,126 @@ body {
   color: var(--foreground);
   font-family: "Segoe UI", Arial, Helvetica, sans-serif;
 }
+
+.swise-logo-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: 1px solid rgb(226 232 240);
+  background:
+    radial-gradient(circle at top left, rgb(186 230 253 / 0.95), transparent 45%),
+    linear-gradient(135deg, rgb(248 250 252), rgb(239 246 255));
+  padding: 0.35rem 0.55rem;
+}
+
+.swise-logo-mark {
+  height: 3rem;
+  width: 8.8rem;
+  overflow: visible;
+}
+
+.swise-logo-panel {
+  fill: rgb(255 255 255 / 0.78);
+  stroke: rgb(191 219 254 / 0.9);
+  stroke-width: 1;
+}
+
+.swise-logo-s {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.swise-logo-s path,
+.swise-logo-glow {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: swise-logo-draw 5.8s ease-in-out infinite;
+}
+
+.swise-logo-glow {
+  fill: none;
+  stroke: rgb(34 211 238 / 0.55);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.swise-logo-s-left {
+  animation: swise-logo-left 5.8s ease-in-out infinite;
+}
+
+.swise-logo-s-right {
+  animation: swise-logo-right 5.8s ease-in-out infinite;
+}
+
+.swise-logo-s-right path {
+  animation-delay: 0.2s;
+}
+
+@keyframes swise-logo-draw {
+  0%,
+  10% {
+    stroke-dashoffset: 180;
+    opacity: 0.35;
+  }
+
+  20%,
+  65% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  85%,
+  100% {
+    stroke-dashoffset: -180;
+    opacity: 0.4;
+  }
+}
+
+@keyframes swise-logo-left {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(7px) translateY(2px) rotate(3deg);
+  }
+
+  50% {
+    transform: translateX(12px) translateY(3px) rotate(5deg);
+  }
+
+  75% {
+    transform: translateX(6px) translateY(1px) rotate(2deg);
+  }
+}
+
+@keyframes swise-logo-right {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-7px) translateY(-2px) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateX(-12px) translateY(-3px) rotate(-5deg);
+  }
+
+  75% {
+    transform: translateX(-6px) translateY(-1px) rotate(-2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swise-logo-s,
+  .swise-logo-s path,
+  .swise-logo-glow {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
