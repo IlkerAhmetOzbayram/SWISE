@@ -5,36 +5,36 @@ import { useRef, useState } from "react";
 
 const services = [
   {
-    title: "SAP ABAP Danismanligi",
-    desc: "Kurumsal ihtiyaclara özel ABAP gelistirme, bakım, optimizasyon ve S/4HANA uyumlu çözümler.",
+    title: "SAP ABAP Danışmanlığı",
+    desc: "Kurumsal ihtiyaçlara özel ABAP geliştirme, bakım, optimizasyon ve S/4HANA uyumlu çözümler.",
   },
   {
     title: "E-Fatura",
-    desc: "Yasal uyumlu, güvenli ve sürdürülebilir E-Fatura sürec yönetimi çözumleri.",
+    desc: "Yasal uyumlu, güvenli ve sürdürülebilir e-Fatura süreç yönetimi çözümleri.",
   },
   {
-    title: "E-Arsiv",
-    desc: "Dijital belge yönetimini kolaylaştiran, hızlı ve izlenebilir E-Arsiv altyapısı.",
+    title: "E-Arşiv",
+    desc: "Dijital belge yönetimini kolaylaştıran, hızlı ve izlenebilir e-Arşiv altyapısı.",
   },
   {
-    title: "E-Irsaliye",
-    desc: "Operasyon süreçlerini hızlandıran, entegrasyon odaklı E-Irsaliye uygulamaları.",
+    title: "E-İrsaliye",
+    desc: "Operasyon süreçlerini hızlandıran, entegrasyon odaklı e-İrsaliye uygulamaları.",
   },
   {
     title: "E-Defter",
-    desc: "Mevzuata uygun, kontrol edilebilir ve güvenilir E-Defter çözümleri.",
+    desc: "Mevzuata uygun, kontrol edilebilir ve güvenilir e-Defter çözümleri.",
   },
   {
     title: "E-Mutabakat",
-    desc: "Ticari mutabakat süreclerini dijitallestiren verimli ve merkezi yönetim yapisi.",
+    desc: "Ticari mutabakat süreçlerini dijitalleştiren verimli ve merkezi yönetim yapısı.",
   },
 ];
 
 const reasons = [
-  "SAP ABAP uzmanligi",
+  "SAP ABAP uzmanlığı",
   "E-Dönüşüm ürün ailesi",
   "Kurumsal ve sürdürülebilir yaklaşım",
-  "Entegrasyon odakli çözüm yapısı",
+  "Entegrasyon odaklı çözüm yapısı",
 ];
 
 const menuItems = [
@@ -48,19 +48,19 @@ const menuItems = [
 
 const references = [
   {
-    title: "Konveyor",
+    title: "Konveyör",
     logo: "/references/konveyor-as-logo.jpg",
-    sector: "Beyaz eşya, otomotiv ve yedek parca",
+    sector: "Beyaz eşya, otomotiv ve yedek parça",
     service: "SAP ABAP ve entegrasyon çözümleri",
-    desc: "Üretim ve tedarik sureclerinde SAP uyumlu gelistirmeler, is akislarinin iyilestirilmesi ve operasyonel entegrasyon yapilari.",
+    desc: "Üretim ve tedarik süreçlerinde SAP uyumlu geliştirmeler, iş akışlarının iyileştirilmesi ve operasyonel entegrasyon yapıları.",
   },
 ];
 
 const differentiators = [
-  "Kuruma ozel yazilim ve danismanlik yaklasimi",
-  "SAP sistemleri ile uyumlu entegrasyon cozumleri",
-  "Yasal uyumluluk ve operasyonel verimlilik odagi",
-  "Uzun vadeli, guvenilir is ortakligi anlayisi",
+  "Kuruma özel yazılım ve danışmanlık yaklaşımı",
+  "SAP sistemleri ile uyumlu entegrasyon çözümleri",
+  "Yasal uyumluluk ve operasyonel verimlilik odağı",
+  "Uzun vadeli, güvenilir iş ortaklığı anlayışı",
 ];
 
 type SubmitState = {
@@ -168,13 +168,13 @@ export default function Home() {
       const result = (await response.json()) as { message?: string };
 
       if (!response.ok) {
-        throw new Error(result.message || "Mesaj gonderilemedi.");
+        throw new Error(result.message || "Mesaj gönderilemedi.");
       }
 
       formRef.current?.reset();
       setSubmitState({
         kind: "success",
-        message: result.message || "Mesajiniz basariyla gonderildi.",
+        message: result.message || "Mesajınız başarıyla gönderildi.",
       });
     } catch (error) {
       setSubmitState({
@@ -182,7 +182,7 @@ export default function Home() {
         message:
           error instanceof Error
             ? error.message
-            : "Bir hata olustu. Lutfen tekrar deneyin.",
+            : "Bir hata oluştu. Lütfen tekrar deneyin.",
       });
     } finally {
       setIsSubmitting(false);
@@ -200,7 +200,7 @@ export default function Home() {
                 SWISE
               </div>
               <div className="text-[11px] uppercase tracking-[0.28em] text-stone-500">
-                Teknoloji ve Danismanlik
+                Teknoloji ve Danışmanlık
               </div>
             </div>
           </div>
@@ -229,7 +229,7 @@ export default function Home() {
               type="button"
               onClick={() => setMenuOpen((prev) => !prev)}
               className="rounded-full border border-slate-300 bg-white px-3 py-2 text-xl text-slate-800 md:hidden"
-              aria-label="Mobil menuyu ac"
+              aria-label="Mobil menüyü aç"
               aria-expanded={menuOpen}
             >
               {menuOpen ? "x" : "="}
@@ -275,31 +275,31 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:px-10 lg:grid-cols-2 lg:items-center lg:py-28">
           <div>
             <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
-              SAP ABAP . E-Donusum . Entegrasyon Cozumleri
+              SAP ABAP . E-Dönüşüm . Entegrasyon Çözümleri
             </div>
 
             <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight md:text-5xl xl:text-6xl">
-              SAP ABAP ve e-Donusum sureclerinde guvenilir, yalin ve kurumsal cozumler
+              SAP ABAP ve e-Dönüşüm süreçlerinde güvenilir, yalın ve kurumsal çözümler
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 md:text-lg">
-              SWISE, kurumlarin dijital donusum yolculugunda SAP ABAP danismanligi, e-Donusum urunleri
-              ve entegrasyon hizmetleri ile uctan uca cozum sunar. Teknik gucu is sureci bilgisiyle
-              birlestirerek daha verimli ve daha yonetilebilir yapilar kurar.
+              SWISE, kurumların dijital dönüşüm yolculuğunda SAP ABAP danışmanlığı, e-Dönüşüm ürünleri
+              ve entegrasyon hizmetleri ile uçtan uca çözüm sunar. Teknik gücü iş süreci bilgisiyle
+              birleştirerek daha verimli ve daha yönetilebilir yapılar kurar.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#hizmetler"
-                  className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
               >
-                Hizmetleri Inceleyin
+                Hizmetleri İnceleyin
               </a>
               <a
                 href="#iletisim"
                 className="rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                Teklif Alin
+                Teklif Alın
               </a>
             </div>
 
@@ -307,7 +307,7 @@ export default function Home() {
               {reasons.map((item) => (
                 <div
                   key={item}
-                className="rounded-3xl border border-white/15 bg-white/10 p-4 text-sm text-white backdrop-blur"
+                  className="rounded-3xl border border-white/15 bg-white/10 p-4 text-sm text-white backdrop-blur"
                 >
                   {item}
                 </div>
@@ -323,7 +323,7 @@ export default function Home() {
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
                       SWISE
                     </div>
-                    <div className="text-xs text-slate-500">Kurumsal teknoloji cozumleri</div>
+                    <div className="text-xs text-slate-500">Kurumsal teknoloji çözümleri</div>
                   </div>
                   <div className="rounded-full bg-blue-50 px-3 py-2 text-xs font-medium text-blue-700">
                     Enterprise Ready
@@ -332,23 +332,23 @@ export default function Home() {
 
                 <div className="mt-6 grid gap-4">
                   <div className="rounded-3xl bg-slate-50 p-5">
-                    <div className="text-sm text-slate-500">Ana uzmanlik</div>
+                    <div className="text-sm text-slate-500">Ana uzmanlık</div>
                     <div className="mt-2 text-lg font-semibold text-slate-950">
-                      SAP ABAP danismanligi ve ozel gelistirme
+                      SAP ABAP danışmanlığı ve özel geliştirme
                     </div>
                   </div>
 
                   <div className="rounded-3xl bg-slate-50 p-5">
-                    <div className="text-sm text-slate-500">Urun ailesi</div>
+                    <div className="text-sm text-slate-500">Ürün ailesi</div>
                     <div className="mt-2 text-lg font-semibold text-slate-950">
-                      e-Fatura, e-Arsiv, e-Irsaliye, e-Defter, e-Mutabakat
+                      e-Fatura, e-Arşiv, e-İrsaliye, e-Defter, e-Mutabakat
                     </div>
                   </div>
 
                   <div className="rounded-3xl bg-slate-50 p-5">
-                    <div className="text-sm text-slate-500">Yaklasim</div>
+                    <div className="text-sm text-slate-500">Yaklaşım</div>
                     <div className="mt-2 text-lg font-semibold text-slate-950">
-                      Entegre, surdurulebilir ve kurum ihtiyaclarina ozel cozumler
+                      Entegre, sürdürülebilir ve kurum ihtiyaçlarına özel çözümler
                     </div>
                   </div>
                 </div>
@@ -356,11 +356,11 @@ export default function Home() {
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   <div className="rounded-3xl bg-blue-700 p-5 text-white">
                     <div className="text-sm text-blue-100">Odak</div>
-                    <div className="mt-2 text-xl font-bold">SAP ve e-Donusum</div>
+                    <div className="mt-2 text-xl font-bold">SAP ve e-Dönüşüm</div>
                   </div>
                   <div className="rounded-3xl bg-slate-900 p-5 text-white">
                     <div className="text-sm text-slate-300">Hedef</div>
-                    <div className="mt-2 text-xl font-bold">Verimlilik ve uyum</div>
+                    <div className="mt-2 text-xl font-bold">Verimlilik ve Uyum</div>
                   </div>
                 </div>
               </div>
@@ -372,15 +372,15 @@ export default function Home() {
       <section id="hakkimizda" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-16 md:px-10">
         <div className="grid gap-6 rounded-[32px] border border-slate-200 bg-slate-50 p-8 md:grid-cols-3">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Hakkimizda</p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-900">Dijital donusumde sade ve kurumsal yaklasim</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Hakkımızda</p>
+            <h2 className="mt-3 text-3xl font-semibold text-slate-900">Dijital dönüşümde sade ve kurumsal yaklaşım</h2>
           </div>
           <div className="md:col-span-2">
             <p className="text-base leading-8 text-slate-600">
-              SWISE Bilgi Teknolojileri ve Danismanlik Hizmetleri Ltd. Sti., SAP ABAP yazilim gelistirme
-              ve e-Donusum cozumleri alaninda uzmanlasmis bir teknoloji firmasidir. Guclu teknik bilgi,
-              proje deneyimi ve musteri odakli yaklasimi ile kurumlarin is sureclerini iyilestiren,
-              verimliligi artiran ve surdurulebilir deger yaratan cozumler sunar.
+              SWISE Bilgi Teknolojileri ve Danışmanlık Hizmetleri Ltd. Şti., SAP ABAP yazılım geliştirme
+              ve e-Dönüşüm çözümleri alanında uzmanlaşmış bir teknoloji firmasıdır. Güçlü teknik bilgi,
+              proje deneyimi ve müşteri odaklı yaklaşımı ile kurumların iş süreçlerini iyileştiren,
+              verimliliği artıran ve sürdürülebilir değer yaratan çözümler sunar.
             </p>
           </div>
         </div>
@@ -390,10 +390,10 @@ export default function Home() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Hizmetlerimiz</p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-900">Is sureclerinizi guclendiren cozumler</h2>
+            <h2 className="mt-3 text-3xl font-semibold text-slate-900">İş süreçlerinizi güçlendiren çözümler</h2>
           </div>
           <p className="max-w-2xl text-slate-600">
-            SAP altyapinizdan e-Donusum operasyonlariniza kadar tum surecler icin modern, guvenilir ve
+            SAP altyapınızdan e-Dönüşüm operasyonlarınıza kadar tüm süreçler için modern, güvenilir ve
             entegre hizmetler.
           </p>
         </div>
@@ -417,11 +417,11 @@ export default function Home() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-[32px] bg-slate-950 p-8 text-white">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Neden SWISE</p>
-            <h2 className="mt-4 text-3xl font-semibold">Kurumsal ihtiyaclara uygun, sonuc odakli yaklasim</h2>
+            <h2 className="mt-4 text-3xl font-semibold">Kurumsal ihtiyaçlara uygun, sonuç odaklı yaklaşım</h2>
             <p className="mt-5 leading-8 text-slate-300">
-              SAP ABAP uzmanligimiz ve e-Donusum urun ailemiz sayesinde musterilerimize tek noktadan,
-              entegre ve surdurulebilir cozumler sunuyoruz. Analizden canli kullanima kadar tum
-              sureclerde guvenilir is ortagi olarak konumlaniyoruz.
+              SAP ABAP uzmanlığımız ve e-Dönüşüm ürün ailemiz sayesinde müşterilerimize tek noktadan,
+              entegre ve sürdürülebilir çözümler sunuyoruz. Analizden canlı kullanıma kadar tüm
+              süreçlerde güvenilir iş ortağı olarak konumlanıyoruz.
             </p>
           </div>
 
@@ -443,12 +443,12 @@ export default function Home() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Referanslar</p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-900">
-              Farkli sektorlerde kurumsal ihtiyaclara yonelik cozumler
+              Farklı sektörlerde kurumsal ihtiyaçlara yönelik çözümler
             </h2>
           </div>
           <p className="max-w-2xl text-slate-600">
-            SWISE, SAP ABAP danismanligi ve e-Donusum cozumleri ile farkli olceklerdeki isletmelerin
-            dijital donusum sureclerine katki sunmayi hedefler.
+            SWISE, SAP ABAP danışmanlığı ve e-Dönüşüm çözümleri ile farklı ölçeklerdeki işletmelerin
+            dijital dönüşüm süreçlerine katkı sunmayı hedefler.
           </p>
         </div>
 
@@ -486,23 +486,23 @@ export default function Home() {
         <div className="mt-10 rounded-[32px] border border-slate-200 bg-slate-50 p-8">
           <div className="grid gap-6 lg:grid-cols-3">
             <div>
-              <div className="text-3xl font-semibold text-slate-900">Kurumsal yaklasim</div>
+              <div className="text-3xl font-semibold text-slate-900">Kurumsal yaklaşım</div>
               <p className="mt-3 leading-7 text-slate-600">
-                Her projede is ihtiyacini, teknik gereksinimleri ve surdurulebilir yapiyi birlikte ele aliyoruz.
+                Her projede iş ihtiyacını, teknik gereksinimleri ve sürdürülebilir yapıyı birlikte ele alıyoruz.
               </p>
             </div>
 
             <div>
-              <div className="text-3xl font-semibold text-slate-900">Entegrasyon odagi</div>
+              <div className="text-3xl font-semibold text-slate-900">Entegrasyon odağı</div>
               <p className="mt-3 leading-7 text-slate-600">
-                SAP sistemleri ile e-Donusum surecleri arasinda guclu ve yonetilebilir entegrasyonlar kuruyoruz.
+                SAP sistemleri ile e-Dönüşüm süreçleri arasında güçlü ve yönetilebilir entegrasyonlar kuruyoruz.
               </p>
             </div>
 
             <div>
-              <div className="text-3xl font-semibold text-slate-900">Uzun vadeli deger</div>
+              <div className="text-3xl font-semibold text-slate-900">Uzun vadeli değer</div>
               <p className="mt-3 leading-7 text-slate-600">
-                Sadece gelistirme degil, kurumsal olcekte guvenilir ve uzun omurlu cozum yapilari sunmayi hedefliyoruz.
+                Sadece geliştirme değil, kurumsal ölçekte güvenilir ve uzun ömürlü çözüm yapıları sunmayı hedefliyoruz.
               </p>
             </div>
           </div>
@@ -514,13 +514,13 @@ export default function Home() {
           <div className="rounded-[32px] bg-slate-100 p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Vizyonumuz</p>
             <p className="mt-4 text-2xl font-semibold leading-9 text-slate-900">
-              Dijital donusum alaninda guvenilir ve tercih edilen bir teknoloji cozum ortagi olmak.
+              Dijital dönüşüm alanında güvenilir ve tercih edilen bir teknoloji çözüm ortağı olmak.
             </p>
           </div>
           <div className="rounded-[32px] bg-blue-600 p-8 text-white">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100">Misyonumuz</p>
             <p className="mt-4 text-2xl font-semibold leading-9">
-              Musterilerimize verimliligi artiran, surdurulebilir ve yuksek kaliteli yazilim cozumleri sunmak.
+              Müşterilerimize verimliliği artıran, sürdürülebilir ve yüksek kaliteli yazılım çözümleri sunmak.
             </p>
           </div>
         </div>
@@ -530,19 +530,19 @@ export default function Home() {
         <div className="rounded-[36px] border border-slate-200 bg-white p-8 shadow-sm md:p-12">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Iletisim</p>
-              <h2 className="mt-3 text-3xl font-semibold text-slate-900">Kurumsal cozumler icin bizimle iletisime gecin</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">İletişim</p>
+              <h2 className="mt-3 text-3xl font-semibold text-slate-900">Kurumsal çözümler için bizimle iletişime geçin</h2>
               <p className="mt-5 max-w-xl leading-8 text-slate-600">
-                SAP ABAP danismanligi, e-Donusum urunleri ve entegrasyon ihtiyaclariniz icin size uygun
-                cozum yapisini birlikte kurgulayalim. Talebinizi iletin, ekibimiz en kisa surede sizinle
-                iletisime gecsin.
+                SAP ABAP danışmanlığı, e-Dönüşüm ürünleri ve entegrasyon ihtiyaçlarınız için size uygun
+                çözüm yapısını birlikte kurgulayalım. Talebinizi iletin, ekibimiz en kısa sürede sizinle
+                iletişime geçsin.
               </p>
 
               <div className="mt-8 grid gap-4 rounded-[28px] bg-slate-50 p-6">
                 <div className="rounded-3xl bg-white p-5">
-                  <div className="text-sm text-slate-500">Sirket</div>
+                  <div className="text-sm text-slate-500">Şirket</div>
                   <div className="mt-1 font-semibold text-slate-900">
-                    SWISE Bilgi Teknolojileri ve Danismanlik Hizmetleri Ltd. Sti.
+                    SWISE Bilgi Teknolojileri ve Danışmanlık Hizmetleri Ltd. Şti.
                   </div>
                 </div>
 
@@ -552,9 +552,9 @@ export default function Home() {
                 </div>
 
                 <div className="rounded-3xl bg-white p-5">
-                  <div className="text-sm text-slate-500">Hizmet alanlari</div>
+                  <div className="text-sm text-slate-500">Hizmet alanları</div>
                   <div className="mt-1 font-semibold text-slate-900">
-                    SAP ABAP, e-Fatura, e-Arsiv, e-Irsaliye, e-Defter, e-Mutabakat
+                    SAP ABAP, e-Fatura, e-Arşiv, e-İrsaliye, e-Defter, e-Mutabakat
                   </div>
                 </div>
               </div>
@@ -567,18 +567,18 @@ export default function Home() {
                   <input
                     name="name"
                     type="text"
-                    placeholder="Adiniz ve soyadiniz"
+                    placeholder="Adınız ve soyadınız"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Firma Adi</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Firma Adı</label>
                   <input
                     name="company"
                     type="text"
-                    placeholder="Firma adinizi giriniz"
+                    placeholder="Firma adınızı giriniz"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
                     required
                   />
@@ -609,16 +609,16 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Ilgilendiginiz hizmet</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">İlgilendiğiniz hizmet</label>
                   <select
                     name="service"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
                     required
                   >
-                    <option>SAP ABAP Danismanligi</option>
+                    <option>SAP ABAP Danışmanlığı</option>
                     <option>e-Fatura</option>
-                    <option>e-Arsiv</option>
-                    <option>e-Irsaliye</option>
+                    <option>e-Arşiv</option>
+                    <option>e-İrsaliye</option>
                     <option>e-Defter</option>
                     <option>e-Mutabakat</option>
                     <option>Entegrasyon Hizmetleri</option>
@@ -626,11 +626,11 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Mesajiniz</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Mesajınız</label>
                   <textarea
                     name="message"
                     rows={6}
-                    placeholder="Talebinizi ve ihtiyaclarinizi yazabilirsiniz"
+                    placeholder="Talebinizi ve ihtiyaçlarınızı yazabilirsiniz"
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-600"
                     required
                   />
@@ -654,7 +654,7 @@ export default function Home() {
                   disabled={isSubmitting}
                   className="inline-flex justify-center rounded-2xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-blue-400"
                 >
-                  {isSubmitting ? "Gonderiliyor..." : "Talep Gonder"}
+                  {isSubmitting ? "Gönderiliyor..." : "Talep Gönder"}
                 </button>
               </form>
             </div>
@@ -664,8 +664,8 @@ export default function Home() {
 
       <footer className="mt-10 border-t border-slate-200 bg-slate-50">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 md:flex-row md:items-center md:justify-between md:px-10">
-          <div>(c) 2026 SWISE Bilgi Teknolojileri ve Danismanlik Hizmetleri Ltd. Sti.</div>
-          <div>SAP ABAP . e-Fatura . e-Arsiv . e-Irsaliye . e-Defter . e-Mutabakat</div>
+          <div>(c) 2026 SWISE Bilgi Teknolojileri ve Danışmanlık Hizmetleri Ltd. Şti.</div>
+          <div>SAP ABAP . e-Fatura . e-Arşiv . e-İrsaliye . e-Defter . e-Mutabakat</div>
         </div>
       </footer>
     </main>

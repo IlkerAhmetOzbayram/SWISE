@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     payload = (await request.json()) as ContactPayload;
   } catch {
     return NextResponse.json(
-      { message: "Gecersiz istek verisi gonderildi." },
+      { message: "Geçersiz istek verisi gönderildi." },
       { status: 400 },
     );
   }
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
   if (!name || !company || !email || !phone || !service || !message) {
     return NextResponse.json(
-      { message: "Lutfen tum alanlari doldurun." },
+      { message: "Lütfen tüm alanları doldurun." },
       { status: 400 },
     );
   }
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
 
   if (!emailPattern.test(email)) {
     return NextResponse.json(
-      { message: "Lutfen gecerli bir e-posta adresi girin." },
+      { message: "Lütfen geçerli bir e-posta adresi girin." },
       { status: 400 },
     );
   }
@@ -118,7 +118,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message:
-          "Mesaj gonderilirken bir sorun olustu. Lutfen daha sonra tekrar deneyin.",
+          "Mesaj gönderilirken bir sorun oluştu. Lütfen daha sonra tekrar deneyin.",
       },
       { status: 500 },
     );
