@@ -71,52 +71,55 @@ type SubmitState = {
 function AnimatedLogo() {
   return (
     <div className="swise-logo-shell">
-      <svg
-        viewBox="0 0 168 64"
-        aria-hidden="true"
-        className="swise-logo-mark"
-      >
+      <svg viewBox="0 0 168 64" aria-hidden="true" className="swise-logo-mark">
         <defs>
-          <linearGradient id="swise-primary" x1="0%" x2="100%" y1="0%" y2="100%">
-            <stop offset="0%" stopColor="#1d4ed8" />
-            <stop offset="55%" stopColor="#06b6d4" />
-            <stop offset="100%" stopColor="#38bdf8" />
-          </linearGradient>
-          <linearGradient id="swise-secondary" x1="100%" x2="0%" y1="0%" y2="100%">
+          <linearGradient id="swise-panel" x1="0%" x2="100%" y1="0%" y2="100%">
             <stop offset="0%" stopColor="#0f172a" />
-            <stop offset="45%" stopColor="#1e3a8a" />
+            <stop offset="58%" stopColor="#13203b" />
+            <stop offset="100%" stopColor="#1e3a8a" />
+          </linearGradient>
+          <linearGradient id="swise-primary" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="#f8fafc" />
+            <stop offset="45%" stopColor="#dbeafe" />
+            <stop offset="100%" stopColor="#67e8f9" />
+          </linearGradient>
+          <linearGradient id="swise-accent" x1="0%" x2="100%" y1="0%" y2="0%">
+            <stop offset="0%" stopColor="#22d3ee" />
             <stop offset="100%" stopColor="#2563eb" />
           </linearGradient>
-          <filter id="swise-glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="3.6" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
+          <linearGradient id="swise-sheen" x1="0%" x2="100%" y1="0%" y2="0%">
+            <stop offset="0%" stopColor="transparent" />
+            <stop offset="50%" stopColor="rgba(255,255,255,0.45)" />
+            <stop offset="100%" stopColor="transparent" />
+          </linearGradient>
+          <clipPath id="swise-panel-clip">
+            <rect x="4" y="4" width="160" height="56" rx="20" />
+          </clipPath>
         </defs>
 
-        <rect
-          x="4"
-          y="4"
-          width="160"
-          height="56"
-          rx="20"
-          className="swise-logo-panel"
-        />
+        <rect x="4" y="4" width="160" height="56" rx="20" className="swise-logo-panel" />
+        <rect x="10" y="10" width="148" height="44" rx="16" className="swise-logo-inner" />
 
+        <g clipPath="url(#swise-panel-clip)">
+          <rect className="swise-logo-sheen" x="-52" y="0" width="36" height="64" />
+        </g>
+
+        <circle cx="84" cy="32" r="24" className="swise-logo-ring" />
         <path
-          className="swise-logo-glow"
-          d="M63 14C49 14 39 20 39 29C39 37 47 40 58 43C69 46 75 48 75 54C75 60 69 64 58 64"
-          filter="url(#swise-glow)"
+          d="M58 32H110"
+          fill="none"
+          stroke="url(#swise-accent)"
+          strokeWidth="5"
+          strokeLinecap="round"
+          className="swise-logo-bar"
         />
 
         <g className="swise-logo-s swise-logo-s-left">
           <path
-            d="M63 14C49 14 39 20 39 29C39 37 47 40 58 43C69 46 75 48 75 54C75 60 69 64 58 64"
+            d="M63 18C56 14 48 13 40 16C30 20 25 28 28 36C31 44 40 47 51 47H70"
             fill="none"
             stroke="url(#swise-primary)"
-            strokeWidth="10"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -124,10 +127,10 @@ function AnimatedLogo() {
 
         <g className="swise-logo-s swise-logo-s-right">
           <path
-            d="M105 0C95 0 89 4 89 10C89 17 95 20 106 23C119 27 129 31 129 41C129 51 119 58 104 58C93 58 84 54 77 47"
+            d="M105 46C112 50 120 51 128 48C138 44 143 36 140 28C137 20 128 17 117 17H98"
             fill="none"
-            stroke="url(#swise-secondary)"
-            strokeWidth="10"
+            stroke="url(#swise-primary)"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
