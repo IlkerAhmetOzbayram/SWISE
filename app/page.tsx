@@ -71,69 +71,69 @@ type SubmitState = {
 function AnimatedLogo() {
   return (
     <div className="swise-logo-shell">
-      <svg viewBox="0 0 168 64" aria-hidden="true" className="swise-logo-mark">
+      <svg viewBox="0 0 88 88" aria-hidden="true" className="swise-logo-mark">
         <defs>
-          <linearGradient id="swise-panel" x1="0%" x2="100%" y1="0%" y2="100%">
-            <stop offset="0%" stopColor="#0f172a" />
-            <stop offset="58%" stopColor="#13203b" />
-            <stop offset="100%" stopColor="#1e3a8a" />
+          <linearGradient id="swise-face-light" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="#7dd3fc" />
+            <stop offset="100%" stopColor="#38bdf8" />
           </linearGradient>
-          <linearGradient id="swise-primary" x1="0%" x2="100%" y1="0%" y2="100%">
-            <stop offset="0%" stopColor="#f8fafc" />
-            <stop offset="45%" stopColor="#dbeafe" />
-            <stop offset="100%" stopColor="#67e8f9" />
+          <linearGradient id="swise-face-mid" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="#2563eb" />
+            <stop offset="100%" stopColor="#1d4ed8" />
           </linearGradient>
-          <linearGradient id="swise-accent" x1="0%" x2="100%" y1="0%" y2="0%">
-            <stop offset="0%" stopColor="#22d3ee" />
-            <stop offset="100%" stopColor="#2563eb" />
+          <linearGradient id="swise-face-dark" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stopColor="#1e40af" />
+            <stop offset="100%" stopColor="#0f2f91" />
           </linearGradient>
           <linearGradient id="swise-sheen" x1="0%" x2="100%" y1="0%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.45)" />
+            <stop offset="50%" stopColor="rgba(255,255,255,0.42)" />
             <stop offset="100%" stopColor="transparent" />
           </linearGradient>
-          <clipPath id="swise-panel-clip">
-            <rect x="4" y="4" width="160" height="56" rx="20" />
+          <clipPath id="swise-glyph-clip">
+            <path d="M22 16L43 9L73 18V43L52 36L52 27L43 24V18L22 16Z" />
+            <path d="M13 45L34 52L34 70L55 78L55 53L76 45V60L55 53L34 45V30L13 37Z" />
           </clipPath>
         </defs>
 
-        <rect x="4" y="4" width="160" height="56" rx="20" className="swise-logo-panel" />
-        <rect x="10" y="10" width="148" height="44" rx="16" className="swise-logo-inner" />
+        <rect x="4" y="4" width="80" height="80" rx="24" className="swise-logo-panel" />
+        <rect x="9" y="9" width="70" height="70" rx="19" className="swise-logo-inner" />
 
-        <g clipPath="url(#swise-panel-clip)">
-          <rect className="swise-logo-sheen" x="-52" y="0" width="36" height="64" />
-        </g>
+        <g className="swise-glyph">
+          <g className="swise-glyph-top">
+            <polygon points="43,9 73,18 73,43 43,34" fill="url(#swise-face-light)" />
+            <polygon points="22,16 43,9 43,34 22,41" fill="url(#swise-face-dark)" />
+            <polygon points="22,16 43,24 73,33 73,18 43,9" fill="url(#swise-face-light)" opacity="0.88" />
+          </g>
 
-        <circle cx="84" cy="32" r="24" className="swise-logo-ring" />
-        <path
-          d="M58 32H110"
-          fill="none"
-          stroke="url(#swise-accent)"
-          strokeWidth="5"
-          strokeLinecap="round"
-          className="swise-logo-bar"
-        />
+          <g className="swise-glyph-bottom">
+            <polygon points="13,58 43,67 43,79 13,70" fill="url(#swise-face-light)" />
+            <polygon points="43,67 64,59 64,72 43,79" fill="url(#swise-face-dark)" />
+            <polygon points="13,45 34,52 64,59 43,67 13,58" fill="url(#swise-face-mid)" />
+          </g>
 
-        <g className="swise-logo-s swise-logo-s-left">
+          <g className="swise-glyph-bridge">
+            <polygon points="13,37 34,30 34,45 13,52" fill="url(#swise-face-dark)" />
+            <polygon points="34,30 64,39 64,59 34,50" fill="url(#swise-face-mid)" />
+            <polygon points="34,50 43,67 64,59 55,42" fill="url(#swise-face-light)" opacity="0.78" />
+          </g>
+
           <path
-            d="M63 18C56 14 48 13 40 16C30 20 25 28 28 36C31 44 40 47 51 47H70"
-            fill="none"
-            stroke="url(#swise-primary)"
-            strokeWidth="8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            d="M35 26L65 35L54 43L24 34Z"
+            fill="white"
+            opacity="0.98"
+            className="swise-glyph-cut"
+          />
+          <path
+            d="M13 51L43 60L54 52L24 43Z"
+            fill="white"
+            opacity="0.98"
+            className="swise-glyph-cut"
           />
         </g>
 
-        <g className="swise-logo-s swise-logo-s-right">
-          <path
-            d="M105 46C112 50 120 51 128 48C138 44 143 36 140 28C137 20 128 17 117 17H98"
-            fill="none"
-            stroke="url(#swise-primary)"
-            strokeWidth="8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+        <g clipPath="url(#swise-glyph-clip)">
+          <rect className="swise-logo-sheen" x="-28" y="0" width="22" height="88" />
         </g>
       </svg>
     </div>
