@@ -6,53 +6,53 @@ import { useRef, useState } from "react";
 const services = [
   {
     title: "SAP ABAP Danismanligi",
-    desc: "Kurumsal ihtiyaclara ozel ABAP gelistirme, bakim, optimizasyon ve S/4HANA uyumlu cozumler.",
+    desc: "Kurumsal ihtiyaclara özel ABAP gelistirme, bakım, optimizasyon ve S/4HANA uyumlu çözümler.",
   },
   {
     title: "E-Fatura",
-    desc: "Yasal uyumlu, guvenli ve surdurulebilir e-Fatura surec yonetimi cozumleri.",
+    desc: "Yasal uyumlu, güvenli ve sürdürülebilir E-Fatura sürec yönetimi çözumleri.",
   },
   {
     title: "E-Arsiv",
-    desc: "Dijital belge yonetimini kolaylastiran, hizli ve izlenebilir e-Arsiv altyapisi.",
+    desc: "Dijital belge yönetimini kolaylaştiran, hızlı ve izlenebilir E-Arsiv altyapısı.",
   },
   {
     title: "E-Irsaliye",
-    desc: "Operasyon sureclerini hizlandiran, entegrasyon odakli e-Irsaliye uygulamalari.",
+    desc: "Operasyon süreçlerini hızlandıran, entegrasyon odaklı E-Irsaliye uygulamaları.",
   },
   {
     title: "E-Defter",
-    desc: "Mevzuata uygun, kontrol edilebilir ve guvenilir e-Defter cozumleri.",
+    desc: "Mevzuata uygun, kontrol edilebilir ve güvenilir E-Defter çözümleri.",
   },
   {
     title: "E-Mutabakat",
-    desc: "Ticari mutabakat sureclerini dijitallestiren verimli ve merkezi yonetim yapisi.",
+    desc: "Ticari mutabakat süreclerini dijitallestiren verimli ve merkezi yönetim yapisi.",
   },
 ];
 
 const reasons = [
   "SAP ABAP uzmanligi",
-  "e-Donusum urun ailesi",
-  "Kurumsal ve surdurulebilir yaklasim",
-  "Entegrasyon odakli cozum yapisi",
+  "E-Dönüşüm ürün ailesi",
+  "Kurumsal ve sürdürülebilir yaklaşım",
+  "Entegrasyon odakli çözüm yapısı",
 ];
 
 const menuItems = [
   { name: "Ana Sayfa", link: "#anasayfa" },
-  { name: "Hakkimizda", link: "#hakkimizda" },
+  { name: "Hakkımızda", link: "#hakkimizda" },
   { name: "Hizmetler", link: "#hizmetler" },
   { name: "Neden SWISE", link: "#neden-biz" },
   { name: "Referanslar", link: "#referanslar" },
-  { name: "Iletisim", link: "#iletisim" },
+  { name: "İletişim", link: "#iletisim" },
 ];
 
 const references = [
   {
     title: "Konveyor",
     logo: "/references/konveyor-as-logo.jpg",
-    sector: "Beyaz esya, otomotiv ve yedek parca",
-    service: "SAP ABAP ve entegrasyon cozumleri",
-    desc: "Uretim ve tedarik sureclerinde SAP uyumlu gelistirmeler, is akislarinin iyilestirilmesi ve operasyonel entegrasyon yapilari.",
+    sector: "Beyaz eşya, otomotiv ve yedek parca",
+    service: "SAP ABAP ve entegrasyon çözümleri",
+    desc: "Üretim ve tedarik sureclerinde SAP uyumlu gelistirmeler, is akislarinin iyilestirilmesi ve operasyonel entegrasyon yapilari.",
   },
 ];
 
