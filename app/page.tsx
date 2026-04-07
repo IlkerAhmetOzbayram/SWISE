@@ -68,57 +68,6 @@ type SubmitState = {
   message: string;
 };
 
-function AnimatedLogo() {
-  return (
-    <div className="swise-logo-shell">
-      <svg viewBox="0 0 96 96" aria-hidden="true" className="swise-logo-mark">
-        <defs>
-          <linearGradient id="swise-s-fill" x1="12%" x2="84%" y1="18%" y2="86%">
-            <stop offset="0%" stopColor="#173a7b" />
-            <stop offset="52%" stopColor="#0f2e67" />
-            <stop offset="100%" stopColor="#0a2351" />
-          </linearGradient>
-          <linearGradient id="swise-s-accent" x1="0%" x2="100%" y1="0%" y2="0%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0)" />
-            <stop offset="48%" stopColor="rgba(255,255,255,0.34)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-          </linearGradient>
-          <clipPath id="swise-s-clip">
-            <path d="M63 11C49 13 38 17 28 24C16 33 12 43 16 51C20 59 31 65 48 71L43 66C28 60 20 55 18 47C16 39 21 31 32 22C40 16 50 13 68 11H63Z" />
-            <path d="M47 38C61 45 69 52 71 61C73 71 67 81 48 91H56C68 89 78 85 85 79C94 71 95 61 89 53C84 47 74 41 58 36L47 38Z" />
-          </clipPath>
-        </defs>
-
-        <rect x="5" y="5" width="86" height="86" rx="26" className="swise-logo-panel" />
-        <rect x="10" y="10" width="76" height="76" rx="21" className="swise-logo-inner" />
-
-        <g className="swise-glyph">
-          <path
-            className="swise-s-mark"
-            fill="url(#swise-s-fill)"
-            d="M63 11C49 13 38 17 28 24C16 33 12 43 16 51C20 59 31 65 48 71L35 71C24 67 16 63 11 57C3 48 5 35 16 24C27 13 43 8 66 8H74L63 11Z"
-          />
-          <path
-            className="swise-s-mark"
-            fill="url(#swise-s-fill)"
-            d="M47 38C61 45 69 52 71 61C73 71 67 81 48 91H56C68 89 78 85 85 79C94 71 95 61 89 53C84 47 74 41 58 36L47 38Z"
-          />
-          <path
-            className="swise-s-core"
-            fill="url(#swise-s-fill)"
-            d="M49 32C37 25 28 18 23 12H33C37 17 44 23 56 29L49 32ZM40 67C49 61 56 54 59 48C62 41 59 33 49 24L59 24C68 33 70 43 66 51C63 59 55 66 43 74L40 67Z"
-            opacity="0.98"
-          />
-        </g>
-
-        <g clipPath="url(#swise-s-clip)">
-          <rect className="swise-logo-sheen" x="-24" y="0" width="20" height="96" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -173,7 +122,16 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
           <div className="flex items-center gap-4">
-            <AnimatedLogo />
+            <div className="swise-logo-shell">
+              <Image
+                src="/logo.png"
+                alt="SWISE logosu"
+                width={56}
+                height={56}
+                priority
+                className="swise-logo-image"
+              />
+            </div>
             <div className="leading-tight">
               <div className="text-lg font-semibold tracking-[0.22em] text-stone-950">
                 SWISE
