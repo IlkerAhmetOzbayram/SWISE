@@ -124,7 +124,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <div className="swise-logo-shell">
               <Image
-                src="/logo-v2.png"
+                src="/logo-v3.png"
                 alt="SWISE logosu"
                 width={56}
                 height={56}
