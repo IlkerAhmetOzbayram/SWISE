@@ -31,7 +31,7 @@ body {
   border: 1px solid rgb(148 163 184 / 0.2);
   background: linear-gradient(135deg, rgb(248 250 252), rgb(241 245 249));
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.8), 0 10px 24px rgb(15 23 42 / 0.08);
-  padding: 0.28rem;
+  padding: 0.3rem;
 }
 
 .swise-logo-mark {
@@ -54,37 +54,28 @@ body {
 
 .swise-glyph {
   transform-origin: center;
-  animation: swise-glyph-float 7.2s ease-in-out infinite;
+  animation: swise-glyph-float 7.6s ease-in-out infinite;
 }
 
 .swise-logo-sheen {
-  fill: url(#swise-sheen);
+  fill: url(#swise-s-accent);
   opacity: 0.3;
-  transform: skewX(-20deg);
-  animation: swise-logo-sheen 8s ease-in-out infinite;
+  transform: skewX(-18deg);
+  animation: swise-logo-sheen 8.4s ease-in-out infinite;
 }
 
-.swise-glyph-top,
-.swise-glyph-bottom,
-.swise-glyph-bridge {
+.swise-s-mark,
+.swise-s-core {
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.swise-glyph-top {
-  animation: swise-glyph-top 7.2s ease-in-out infinite;
+.swise-s-mark {
+  animation: swise-s-mark 7.6s ease-in-out infinite;
 }
 
-.swise-glyph-bottom {
-  animation: swise-glyph-bottom 7.2s ease-in-out infinite;
-}
-
-.swise-glyph-bridge {
-  animation: swise-glyph-bridge 7.2s ease-in-out infinite;
-}
-
-.swise-glyph-cut {
-  animation: swise-glyph-cut 7.2s ease-in-out infinite;
+.swise-s-core {
+  animation: swise-s-core 7.6s ease-in-out infinite;
 }
 
 @keyframes swise-glyph-float {
@@ -98,74 +89,50 @@ body {
   }
 }
 
-@keyframes swise-glyph-top {
+@keyframes swise-s-mark {
   0%,
   100% {
     transform: translateY(0) scale(1);
   }
 
   50% {
-    transform: translateY(-1px) scale(1.012);
+    transform: translateY(-0.9px) scale(1.015);
   }
 }
 
-@keyframes swise-glyph-bottom {
+@keyframes swise-s-core {
   0%,
   100% {
-    transform: translateY(0) scale(1);
+    transform: translateX(0) scale(1);
   }
 
   50% {
-    transform: translateY(1px) scale(1.012);
-  }
-}
-
-@keyframes swise-glyph-bridge {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(0.6px);
+    transform: translateX(1.1px) scale(1.01);
   }
 }
 
 @keyframes swise-logo-sheen {
   0%,
   100% {
-    transform: translateX(-18px) skewX(-20deg);
+    transform: translateX(-16px) skewX(-18deg);
     opacity: 0;
   }
 
-  20%,
-  70% {
-    opacity: 0.22;
+  24%,
+  68% {
+    opacity: 0.2;
   }
 
   50% {
-    transform: translateX(102px) skewX(-20deg);
-    opacity: 0.34;
-  }
-}
-
-@keyframes swise-glyph-cut {
-  0%,
-  100% {
-    opacity: 0.96;
-  }
-
-  50% {
-    opacity: 1;
+    transform: translateX(110px) skewX(-18deg);
+    opacity: 0.32;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .swise-glyph,
-  .swise-glyph-top,
-  .swise-glyph-bottom,
-  .swise-glyph-bridge,
-  .swise-glyph-cut,
+  .swise-s-mark,
+  .swise-s-core,
   .swise-logo-sheen {
     animation: none;
   }
